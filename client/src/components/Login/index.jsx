@@ -14,7 +14,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8080/api/auth";
+			const url = "http://localhost:9020/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
 			window.location = "/";
@@ -53,6 +53,9 @@ const Login = () => {
 							required
 							className={styles.input}
 						/>
+						<Link to="/forgot-password" style={{ alignSelf: "flex-start" }}>
+							<p style={{ padding: "0 15px" }}>Forgot Password ?</p>
+						</Link>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Sing In
